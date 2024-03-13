@@ -10,7 +10,20 @@
 
 <body>
 
+   <form>
+      <h1>Конвертація температури:</h1>
+      <input type="number" id="textBox" value="0"> <br>
 
+      <input type="radio" id="toFahrenheit" name="unit">
+      <label for="toFahrenheit">&#8451; Цельсію &#8594; &#8457; Фаренгейта</label> <br>
+
+      <input type="radio" id="toCelsius" name="unit">
+      <label for="toCelsius">&#8457; Фаренгейта &#8592; &#8451; Цельсію</label> <br>
+
+      <button class="btn" type="button" onclick="convert()">Перетворити</button>
+
+      <p id="result"></p>
+   </form>
 
    <script src="script.js"></script>
 </body>
