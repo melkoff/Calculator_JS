@@ -22,10 +22,10 @@ while (running) {
    else {
       attempts++;
       if (guess < answer) {
-         window.alert("Надто мало. Спробуйте ще раз");
+         window.alert(`Надто мало. Число повинно бути більше за ${guess}`);
       }
       else if (guess > answer) {
-         window.alert("Надто багато. Спробуйте ще раз");
+         window.alert(`Надто багато. Число повинно бути менше за ${guess}`);
       }
       else {
          window.alert(`Вітаємо! Ви вгадали за ${attempts} спроб`);
