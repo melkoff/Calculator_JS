@@ -1,9 +1,9 @@
-const email = "vasamelko@gmail.com";
+const fullName = ["Я", "Одна", "Строка"];
 
-let username = email.slice(0, email.indexOf("@"));
-let extension = email.slice(email.indexOf("@"));
-let find = email.slice(email.charAt("@") + 1);
+function together(...strings) {
 
-console.log(username);
-console.log(extension);
-console.log(find);
+   return fullName = strings.join(" ");
+
+}
+
+console.log(...fullName);
