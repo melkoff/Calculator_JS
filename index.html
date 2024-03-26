@@ -10,7 +10,31 @@
 
 <body>
 
-   <p id="result"></p>
+   <h1 class="title">Згенеруйте собі пароль</h1>
+
+   <p class="description">
+      Оберіть один або декілька варіантів для згенерування пароля <br>
+      якщо вибрати усі варіанти то пароль буде згенерований <br> <span>з маленьких букв, великих букв і цифр з
+         символами!</span>
+   </p>
+
+   <fieldset>
+      <input type="checkbox" id="lowPassword" name="choose_password" value="lowPassword">
+      <label for="lowPassword">Згенерувати маленькі літери</label> <br> <br>
+
+      <input type="checkbox" id="midPassword" name="choose_password" value="midPassword">
+      <label for="midPassword">Згенерувати великі літери</label> <br> <br>
+
+      <input type="checkbox" id="highPassword" name="choose_password" value="highPassword">
+      <label for="highPassword">Згенерувати цифри</label> <br> <br>
+
+      <input type="checkbox" id="extremePassword" name="choose_password" value="extremePassword">
+      <label for="extremePassword">Згенерувати символи</label> <br> <br>
+
+      <button id="generatePassword">Згенерувати пароль</button>
+
+      <p id="showGeneratedPassword"></p>
+   </fieldset>
 
    <script src="script.js"></script>
 </body>
