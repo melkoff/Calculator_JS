@@ -1,20 +1,11 @@
-const fullName = ["Я", "Одна", "Строка"];
-function together(...strings) {
+sum(displayContent, 10, 5);
 
-   return strings.join(" ");
-
+function sum(callback, a, b) {
+   let result = a + b;
+   callback(result);
 }
 
-console.log(...fullName);
 
-
-
-
-// const fullName = ["Я", "Одна", "Строка"];
-
-// function together(...strings) {
-//    return strings.join(" ");
-// }
-
-// const textResult = document.getElementById("result");
-// textResult.innerHTML = together(...fullName);
+function displayContent(result) {
+   document.getElementById('titleResult').innerHTML = result;
+}
