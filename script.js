@@ -1,20 +1,47 @@
-const fullName = ["Я", "Одна", "Строка"];
-function together(...strings) {
+let fruits = ["apple", "banana", "cherry"];
 
-   return strings.join(" ");
+fruits.forEach(upperCase);
+fruits.forEach(display);
 
+function upperCase(element, index, array) {
+   array[index] = element.toUpperCase();
 }
 
-console.log(...fullName);
+function display(element) {
+   console.log(element);
+}
 
 
 
+// ============================ NUMBERS ======================================== //
 
-// const fullName = ["Я", "Одна", "Строка"];
 
-// function together(...strings) {
-//    return strings.join(" ");
-// }
 
-// const textResult = document.getElementById("result");
-// textResult.innerHTML = together(...fullName);
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(cube); // Передаємо значення функцій
+numbers.forEach(displayNum); // Показуємо значення
+
+// Doubles the number
+function doubleNum(numElement, index, array) {
+   array[index] = numElement * 2;
+}
+
+// Tripples the number
+function trippleNum(numElement, index, array) {
+   array[index] = numElement * 3;
+}
+
+// Squares the number
+function square(numElement, index, array) {
+   array[index] = Math.pow(numElement, 2);
+}
+
+// Cube the number
+function cube(numElement, index, array) {
+   array[index] = Math.pow(numElement, 3);
+}
+
+function displayNum(numElement) {
+   console.log(numElement);
+}
