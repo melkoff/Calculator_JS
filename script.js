@@ -10,3 +10,42 @@ function sum(callback, a, b) {
 function displayContent(result) {
    document.getElementById('titleResult').innerHTML = result;
 }
+
+// =================================================================== //
+
+hello(goodbye, leave);
+
+function hello(callback) {
+   setTimeout(function () {
+      console.log('1 Hello!');
+      callback();
+   }, 3000)
+}
+
+function goodbye() {
+   console.log('1 Goodbye!');
+}
+
+function leave() {
+   console.log('1 Leave!');
+}
+
+// =================================================================== //
+
+function helloTwo() {
+   let callbacks = Array.from(arguments);
+   setTimeout(function () {
+      console.log('2 HelloTwo!');
+      callbacks.forEach(callback => callback());
+   }, 3000)
+}
+
+helloTwo(goodbyeTwo, leaveTwo);
+
+function goodbyeTwo() {
+   console.log('2 GoodbyeTwo!');
+}
+
+function leaveTwo() {
+   console.log('2 LeaveTwo!');
+}
