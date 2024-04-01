@@ -4,7 +4,7 @@ function Car(brand, model, year, color) {
    this.year = year;
    this.color = color;
    this.drive = function () {
-      console.log(`I'm driving ${this.brand} ${this.model}`);
+      console.log(`I'm driving ${this.brand} ${this.model}, and the car has ${this.color} color.`);
    }
 }
 
