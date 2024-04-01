@@ -1,32 +1,22 @@
-const personeOne = {
-   name: 'Vasa',
-   lastName: 'Melko',
-   age: 26,
-   isEmployed: true,
-   sayHello: function () {
-      console.log(`Hello, my name is ${this.name}`);
-   },
-   eat: function () {
-      console.log('I like pizza');
+function Car(brand, model, year, color) {
+   this.brand = brand;
+   this.model = model;
+   this.year = year;
+   this.color = color;
+   this.drive = function () {
+      console.log(`I'm driving ${this.brand} ${this.model}`);
    }
 }
 
-
-const personeSecond = {
-   name: 'Iren',
-   lastName: 'Pec',
-   age: 31,
-   isEmployed: true,
-   sayHello: () => {
-      console.log(`Hello, my name is Iren`); // Стрілочна функція не поверне значення name як у першому прикладі, так як немає контексту this
-   },
-
-   eat: () => {
-      console.log('I just like eat');
-   }
-
-}
+const firstCar = new Car("Ford", "Mustang", 1969, "red");
+const secondCar = new Car("Toyota", "Camry", 1999, "blue");
+const thirdCar = new Car("Nissan", "Altima", 2020, "green");
 
 
-personeOne.eat();
-personeSecond.sayHello();
+console.log(firstCar.brand, firstCar.model, firstCar.year, firstCar.color);
+console.log(secondCar.brand, secondCar.model, secondCar.year, secondCar.color);
+console.log(thirdCar.brand, thirdCar.model, thirdCar.year, thirdCar.color);
+
+firstCar.drive();
+secondCar.drive();
+thirdCar.drive();
