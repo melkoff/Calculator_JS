@@ -1,49 +1,68 @@
-class Animal {
+class Transport {
 
-   alive = true;
-
-   eat() {
-      console.log(`This ${this.name} is eating`);
-   }
-
-   sleep() {
-      console.log(`This ${this.name} is sleeping`);
+   constructor(name, color, speed) {
+      this.name = name;
+      this.color = color;
+      this.speed = speed;
    }
 
 }
 
-class Rabbit extends Animal {
-   name = "rabbit";
+class Car extends Transport {
 
-   run() { // This method belongs only Rabbit
-      console.log(`This ${this.name} is can running`);
+   constructor(name, color, speed, drive) {
+      super(name, color, speed); // We use the (super) from parent constructor
+      this.drive = drive;
    }
+
+   // add new method
+   ride() {
+      console.log(`This ${this.name} can use road`);
+   }
+
 }
 
 
-class Fish extends Animal {
-   name = "fish"
+class Plane extends Transport {
 
-   swim() { // This method belongs only Fish
-      console.log(`This ${this.name} is can swimming`);
+   constructor(name, color, speed, fly) {
+      super(name, color, speed); // We use the (super) from parent constructor
+      this.fly = fly;
    }
+
+   // add new method
+   flying() {
+      console.log(`This ${this.name} can use sky`);
+   }
+
 }
 
 
-class Bird extends Animal {
-   name = "bird"
+class Ship extends Transport {
 
-   fly() { // This method belongs only Bird
-      console.log(`This ${this.name} is can flying`);
+   constructor(name, color, speed, swim) {
+      super(name, color, speed); // We use the (super) from parent constructor
+      this.swim = swim;
    }
+
+   // add new method
+   swiming() {
+      console.log(`This ${this.name} can use sea`);
+   }
+
 }
 
 
-const rabbit = new Rabbit();
-const fish = new Fish();
-const bird = new Bird();
+const car = new Car("Ford", "Red", 40, true);
+const plane = new Plane("Boing", "White", 350, true);
+const ship = new Ship("Poseidon", "Blue", 120, true)
 
-console.log(fish.alive !== false); // We can change the property alive or not
-fish.eat();
-fish.sleep();
-fish.swim();
+console.log(car.name);
+console.log(car.color);
+console.log(car.speed);
+
+console.log(car.drive ? true : false);
+
+car.ride();
+plane.flying();
+ship.swiming();
