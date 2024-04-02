@@ -1,66 +1,49 @@
-class Product {
-   constructor(name, price) {
-      this.name = name;
-      this.price = price;
+class Animal {
+
+   alive = true;
+
+   eat() {
+      console.log(`This ${this.name} is eating`);
    }
 
-   displayProduct() {
-      console.log(`Product: ${this.name}`);
-      console.log(`Price: $${this.price.toFixed(2)}`);
-   }
-
-   calculateTotal(salesTax) {
-      return this.price + (this.price * salesTax);
+   sleep() {
+      console.log(`This ${this.name} is sleeping`);
    }
 
 }
 
-// tax price
-const salesTax = 0.05;
+class Rabbit extends Animal {
+   name = "rabbit";
 
-const productOne = new Product('Shirt', 25.99);
-const productTwo = new Product('Pants', 29.50);
-const productThree = new Product('Underwear', 100.00);
-
-// For product
-productOne.displayProduct();
-
-const totalPrice = productOne.calculateTotal(salesTax);
-console.log(`Total price (with tax): $${totalPrice.toFixed(2)}`);
-
-
-
-// ========================================= Another Example ===================== //
-console.log(" ========================================= Another Examples ===================== ")
-
-class User {
-
-   static userCount = 0;
-
-   constructor(username) {
-      this.username = username;
-      User.userCount++;
+   run() { // This method belongs only Rabbit
+      console.log(`This ${this.name} is can running`);
    }
-
-   sayHello() {
-      console.log(`Hello, my user name is ${this.username}`)
-   }
-
-   static totalUser() {
-      console.log(`Total users count is ${User.userCount}`);
-   }
-
 }
 
-// Get constructon username
-const user1 = new User("Vasa");
-const user2 = new User("Iren");
-const user3 = new User("Nazar");
 
-// Show username with sayHello function
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
+class Fish extends Animal {
+   name = "fish"
 
-// Show all amount of users
-User.totalUser();
+   swim() { // This method belongs only Fish
+      console.log(`This ${this.name} is can swimming`);
+   }
+}
+
+
+class Bird extends Animal {
+   name = "bird"
+
+   fly() { // This method belongs only Bird
+      console.log(`This ${this.name} is can flying`);
+   }
+}
+
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const bird = new Bird();
+
+console.log(fish.alive !== false); // We can change the property alive or not
+fish.eat();
+fish.sleep();
+fish.swim();
