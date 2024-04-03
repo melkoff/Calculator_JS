@@ -1,45 +1,36 @@
-const persone = {
-   fullName: "Vasa Melko",
-   age: 26,
-   isStudent: false,
-   hobbies: ['Sport', 'Guitar'],
-   address: {
-      country: "Ukraine",
-      city: "Lviv",
-      street: "Some street",
-   }
-}
+const fruits = [
+   { name: "apple", color: "red", calories: 95 },
+   { name: "orange", color: "orange", calories: 56 },
+   { name: "banana", color: "yellow", calories: 125 },
+   { name: "coconut", color: "white", calories: 198 },
+   { name: "pineapple", color: "yellow", calories: 42 },
+];
 
-// console.log(persone.fullName, persone.age, persone.isStudent, persone.hobbies[1], persone.address.city);
 
-for (const property in persone.hobbies) {
-   console.log(persone.hobbies[property])
-}
+// ========== forEach() =========== //
+//fruits.forEach(fruit => console.log(fruit.name))
 
 
 
-// ========================================== Another Example ====================== //
-console.log('========================================== Another Example ======================')
-class Persone {
+// ========== map() =========== //
+// const fruitNames = fruits.map(fruit => fruit.name);
+// const fruitColors = fruits.map(fruit => fruit.color);
 
-   constructor(name, age, ...address) {
-      this.name = name;
-      this.age = age;
-      this.address = new Address(...address);
-   }
-
-}
-class Address {
-
-   constructor(street, city, country) {
-      this.street = street;
-      this.city = city;
-      this.country = country;
-   }
-
-}
+// console.log(fruitNames);
+// console.log(fruitColors);
 
 
-const persone1 = new Persone("Vasa", 26, "Some street", "Lviv", "Ukraine");
 
-console.log(persone1.address)
+// ========== filter() =========== //
+// const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
+// const lowCalloriesFruits = fruits.filter(fruit => fruit.calories < 100);
+
+// console.log(yellowFruits);
+// console.log(lowCalloriesFruits);
+
+
+
+// ========== reduce() =========== //
+const maxCalloriesFruit = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max);
+
+console.log(maxCalloriesFruit);
