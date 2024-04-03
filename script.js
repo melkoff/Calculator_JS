@@ -1,115 +1,70 @@
-class Rectangle {
+// swap 2 elements in an array
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+[colors[0], colors[4]] = [colors[4], colors[0]];
 
-   constructor(width, height) {
-      this.width = width;
-      this.height = height;
-   }
+console.log(colors);
 
-   // setters makes property writeable
-   set width(newWidth) {
-      if (newWidth > 0) {
-         this._width = newWidth;
-      }
-      else {
-         console.error("Width must be more than zero!")
-      }
-   }
 
-   set height(newHeight) {
-      if (newHeight > 0) {
-         this._height = newHeight;
-      }
-      else {
-         console.error("Height must be more than zero!")
-      }
-   }
 
-   // getters makes property readable
-   get width() {
-      return `${this._width.toFixed(1)}cm`;
-   }
+// =========================================== Example 2 ============================== //
+console.log("================= Another Example 2 =================");
+// assign array elements to variables
+const nextColors = ['red', 'green', 'blue', 'black', 'white'];
+const [firstColor, secondColor, thirdColor, ...extraColors] = nextColors;
 
-   get height() {
-      return `${this._height.toFixed(1)}cm`;
-   }
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
 
-   get area() {
-      return `${(this._width * this._height).toFixed(1)}cm`;
-   }
 
+
+// =========================================== Example 3 ============================== //
+console.log("================= Another Example 3 =================");
+// extract values from objects
+const personeOne = {
+   firstName: "Vasa",
+   lastName: "Melko",
+   age: 26,
 }
 
-const rectangle = new Rectangle(10, 4);
-
-console.log(rectangle.width);
-console.log(rectangle.height);
-console.log(rectangle.area);
-
-
-// ==================================================== Another Example ==================================== //
-console.log("Another Example")
-
-
-class Persone {
-
-   constructor(firstName, lastName, age) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.age = age;
-   }
-
-   // setters makes property writeable
-   set firstName(newFirstName) {
-      if (typeof newFirstName === "string" && newFirstName.length > 0) {
-         this._firstName = newFirstName;
-      }
-      else {
-         console.error("First name must a non-empty string")
-      }
-   }
-
-   set lastName(newLastName) {
-      if (typeof newLastName === "string" && newLastName.length > 0) {
-         this._lastName = newLastName;
-      }
-      else {
-         console.error("Last name must a non-empty string")
-      }
-   }
-
-   set age(newAge) {
-      if (typeof newAge === "number" && newAge >= 0) {
-         this._age = newAge;
-      }
-      else {
-         console.error("Age must be a non-negative number")
-      }
-   }
-
-
-   // getters makes property readable
-   get firstName() {
-      return this._firstName.charAt(0).toUpperCase() + this._firstName.slice(1);
-   }
-
-   get lastName() {
-      return this._lastName;
-   }
-
-   get age() {
-      return this._age;
-   }
-
-   get fullName() {
-      return this._firstName + " " + this._lastName;
-   }
-
+const personeTwo = {
+   firstName: "Iren",
+   lastName: "Pec",
+   age: 31,
+   job: "Strong IT",
 }
 
-const persone = new Persone("vasa", "melko", 26);
+const { firstName, lastName, age, job = "Funny IT" } = personeOne;
 
-console.log(persone.firstName);
-console.log(persone.lastName);
-console.log(persone.age);
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
 
-console.log(persone.fullName);
+
+
+// =========================================== Example 4 ============================== //
+console.log("================= Another Example 4 =================");
+// destructure in function parameters
+
+function displayPersone({ firstName, lastName, age, job = "Not specified" }) {
+   console.log(`Fullname: ${firstName} ${lastName}`);
+   console.log(`age: ${age}`);
+   console.log(`job: ${job}`)
+}
+
+const personeDima = {
+   firstName: "Dima",
+   lastName: "Melko",
+   age: 26,
+   job: "American artist",
+}
+
+const personeTaras = {
+   firstName: "Taras",
+   lastName: "Karpinsky",
+   age: 26,
+}
+
+displayPersone(personeTaras);
