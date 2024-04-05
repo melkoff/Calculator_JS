@@ -1,36 +1,34 @@
-const fruits = [
-   { name: "apple", color: "red", calories: 95 },
-   { name: "orange", color: "orange", calories: 56 },
-   { name: "banana", color: "yellow", calories: 125 },
-   { name: "coconut", color: "white", calories: 198 },
-   { name: "pineapple", color: "yellow", calories: 42 },
-];
+let numbers = [1, 2, 5, 9, 10, 3, 7, 4, 6, 8];
+
+numbers.sort((a, b) => b - a);
+
+console.log(numbers)
+
+// ===================================== Another example ============================== //
+console.log("===================================== Another example ==============================")
+
+const people = [
+   { name: "bob", age: 20, gpa: 3.4 },
+   { name: "carl", age: 30, gpa: 3.9 },
+   { name: "alice", age: 25, gpa: 2.9 },
+   { name: "david", age: 27, gpa: 4.0 },
+   { name: "mike", age: 22, gpa: 2.2 }
+]
 
 
-// ========== forEach() =========== //
-//fruits.forEach(fruit => console.log(fruit.name))
+// sort by alphabet 1 example
+people.sort((a, b) => a.name.localeCompare(b.name));
 
 
+// sort by alphabet 2 example
+// people.sort((a, b) => {
+//    if (a.name < b.name) {
+//       return -1
+//    } else if (a.name > b.name) {
+//       return 1
+//    } else {
+//       return 0
+//    }
+// });
 
-// ========== map() =========== //
-// const fruitNames = fruits.map(fruit => fruit.name);
-// const fruitColors = fruits.map(fruit => fruit.color);
-
-// console.log(fruitNames);
-// console.log(fruitColors);
-
-
-
-// ========== filter() =========== //
-// const yellowFruits = fruits.filter(fruit => fruit.color === "yellow");
-// const lowCalloriesFruits = fruits.filter(fruit => fruit.calories < 100);
-
-// console.log(yellowFruits);
-// console.log(lowCalloriesFruits);
-
-
-
-// ========== reduce() =========== //
-const maxCalloriesFruit = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max);
-
-console.log(maxCalloriesFruit);
+console.log(people);
