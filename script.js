@@ -1,20 +1,28 @@
-const date = new Date();
-console.log(date);
+console.log('======================== Another Example =========================');
 
-// Get current data( year, month, day)
-const year = date.getFullYear();
-const month = date.getMonth();
-const day = date.getDate();
-const hour = date.getHours();
-const minutes = date.getMinutes();
-const seconds = date.getSeconds();
-const dayOfWeek = date.getDay();
+function createCounter() {
+   let score = 0;
 
+   function increaseScore(points) {
+      score += points;
+      console.log(`+${points}`);
+   }
 
-console.log(year);
-console.log(month);
-console.log(day);
-console.log(hour);
-console.log(minutes);
-console.log(seconds);
-console.log(dayOfWeek);
+   function decreaseScore(points) {
+      score -= points;
+      console.log(`-${points}`);
+   }
+
+   function getScore() {
+      return score;
+   }
+
+   return { increaseScore, decreaseScore, getScore };
+}
+
+const COUNTER = createCounter();
+
+COUNTER.increaseScore(7);
+COUNTER.increaseScore(7);
+COUNTER.decreaseScore(13);
+console.log(`The final score is ${COUNTER.getScore()} pts`);
