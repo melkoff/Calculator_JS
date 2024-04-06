@@ -1,0 +1,25 @@
+body {
+   margin: 0;
+   background-image: url('coffe.png');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-color: #472d34;
+}
+
+#clock-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   backdrop-filter: blur(6px);
+}
+
+#clock {
+   font-family: monospace;
+   font-size: 6.5rem;
+   font-weight: bold;
+   text-align: center;
+   color: #fff;
+}

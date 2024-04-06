@@ -1,8 +1,13 @@
-function showResult() {
+function updateClock() {
 
-   let result = document.getElementById('result');
+   const currentTime = new Date();
+   const hours = currentTime.getHours().toString().padStart(2, 0);
+   const minutes = currentTime.getMinutes().toString().padStart(2, 0);
+   const seconds = currentTime.getSeconds().toString().padStart(2, 0);
+   const timeString = `${hours}:${minutes}:${seconds}`;
+   document.getElementById('clock').textContent = timeString;
 
-   result.style.display = 'block';
 }
 
-setTimeout(showResult, 3000);
+updateClock();
+setInterval(updateClock, 1000)
