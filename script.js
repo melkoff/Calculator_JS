@@ -49,3 +49,18 @@ function goodbyeTwo() {
 function leaveTwo() {
    console.log('2 LeaveTwo!');
 }
+
+// =================================================================== //
+
+
+function func1(callback) {
+   setTimeout(() => { console.log("NUMBER 1"); callback() }, 3000);
+}
+
+function func2() {
+   console.log("NUMBER 2");
+   console.log("NUMBER 3");
+   console.log("NUMBER 4");
+}
+
+func1(func2);
