@@ -10,9 +10,19 @@
 
 <body>
 
+   <h1 id="myTitle">StopWatch</h1>
 
-   <div id="clock-container">
-      <div id="clock">00:00:00</div>
+   <div id="container">
+
+      <div id="display">
+         00:00:00:00
+      </div>
+      <div id="controls">
+         <button id="startBtn" onclick="start()">Start</button>
+         <button id="stopBtn" onclick="stop()">Stop</button>
+         <button id="resetBtn" onclick="reset()">Reset</button>
+      </div>
+
    </div>
 
    <script src="script.js"></script>
