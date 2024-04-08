@@ -1,34 +1,10 @@
-// .firstElementChild
-// .lastElementChild
-// .nextElementSibling
-// .previousElementSibling
-// .parentElement
-// .children
+// STEP 1 CREATE THE ELEMENT
+const newH1 = document.createElement("h1");
 
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+newH1.textContent = "Hello World";
+newH1.id = "myTitle"
 
-const ulElements = document.querySelectorAll('ul');
-
-// =============================== example for all elements
-
-// ulElements.forEach(ulElement => {
-//    const liElements = ulElement.querySelectorAll('li');
-//    liElements.forEach(liElement => {
-//       liElement.style.color = 'red';
-//    })
-// })
-
-
-// =============================== example for first element
-
-// ulElements.forEach(ulElement => {
-//    const firstChild = ulElement.firstElementChild;
-//    firstChild.style.color = "red";
-// })
-
-
-// =============================== example for last element
-
-ulElements.forEach(ulElement => {
-   const lastChild = ulElement.lastElementChild;
-   lastChild.style.color = "red";
-})
+// STEP 3 APPEND ELEMENT TO DOM
+// document.body.append(newH1);
+document.body.prepend(newH1); // show on the top of the page
