@@ -11,7 +11,7 @@ body {
    font-family: 'Courier New', Courier, monospace;
    background-color: hsl(0, 0%, 15%);
    border-radius: 15px;
-   max-width: 350px;
+   max-width: 385px;
    overflow: hidden;
 }
 
