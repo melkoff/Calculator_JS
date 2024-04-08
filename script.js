@@ -1,10 +1,54 @@
-// STEP 1 CREATE THE ELEMENT
-const newH1 = document.createElement("h1");
+const choices = ["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const computerDisplay = document.getElementById("computerDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const computerScoreDisplay = document.getElementById("computerScoreDisplay");
 
-// STEP 2 ADD ATTRIBUTES/PROPERTIES
-newH1.textContent = "Hello World";
-newH1.id = "myTitle"
+let playerScore = 0;
+let computerScore = 0;
 
-// STEP 3 APPEND ELEMENT TO DOM
-// document.body.append(newH1);
-document.body.prepend(newH1); // show on the top of the page
+
+function playGame(playerChoice) {
+
+   const computerChoice = choices[Math.floor(Math.random() * 3)];
+   let result = "";
+
+   if (playerChoice === computerChoice) {
+      result = "It's a Tie";
+   }
+   else {
+      switch (playerChoice) {
+         case "rock":
+            result = (computerChoice === "scissors") ? "You Win" : "You Lose";
+            break;
+         case "paper":
+            result = (computerChoice === "rock") ? "You Win" : "You Lose";
+            break;
+         case "scissors":
+            result = (computerChoice === "paper") ? "You Win" : "You Lose";
+            break;
+      }
+   }
+
+   playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+   computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
+   resultDisplay.textContent = result;
+
+   //add and remove classes plus change text
+   resultDisplay.classList.remove("greenText", "redText");
+
+   switch (result) {
+      case "You Win":
+         resultDisplay.classList.add("greenText");
+         playerScore++;
+         playerScoreDisplay.textContent = playerScore;
+         break;
+      case "You Lose":
+         resultDisplay.classList.add("redText");
+         computerScore++;
+         computerScoreDisplay.textContent = computerScore;
+         break;
+   }
+
+}
