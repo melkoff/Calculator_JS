@@ -1,22 +1,34 @@
-const display = document.getElementById("display");
+// .firstElementChild
+// .lastElementChild
+// .nextElementSibling
+// .previousElementSibling
+// .parentElement
+// .children
 
-function appendToDisplay(input) {
 
-   display.value += input;
-}
+const ulElements = document.querySelectorAll('ul');
 
-function clearDisplay() {
+// =============================== example for all elements
 
-   display.value = "";
-}
+// ulElements.forEach(ulElement => {
+//    const liElements = ulElement.querySelectorAll('li');
+//    liElements.forEach(liElement => {
+//       liElement.style.color = 'red';
+//    })
+// })
 
-function calculate() {
 
-   try {
-      display.value = eval(display.value);
-   }
-   catch (error) {
+// =============================== example for first element
 
-      display.value = "Error";
-   }
-}
+// ulElements.forEach(ulElement => {
+//    const firstChild = ulElement.firstElementChild;
+//    firstChild.style.color = "red";
+// })
+
+
+// =============================== example for last element
+
+ulElements.forEach(ulElement => {
+   const lastChild = ulElement.lastElementChild;
+   lastChild.style.color = "red";
+})
