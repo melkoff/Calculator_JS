@@ -1,4 +1,4 @@
-const slides = document.querySelectorAll(".container-slides img");
+const slides = document.querySelectorAll(".container-slides .slide");
 let slideIndex = 0;
 let intervalId = null;
 
@@ -8,7 +8,7 @@ function initializeSlider() {
 
    if (slides.length > 0) {
       slides[slideIndex].classList.add("displaySlide");
-      intervalId = setInterval(nextSlide, 5000);
+      intervalId = setInterval(nextSlide, 8000);
    }
 }
 

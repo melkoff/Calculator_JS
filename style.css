@@ -1,6 +1,6 @@
 .slider {
    position: relative;
-   width: 100%;
+   width: 80%;
    margin: auto;
    overflow: hidden;
 }
@@ -10,13 +10,31 @@
    justify-content: center;
 }
 
-.container-slides img {
+.container-slides .slide {
    width: 50%;
    display: none;
 }
 
-img.displaySlide {
-   display: block;
+.slide a {
+   text-decoration: none;
+   color: rgb(85, 85, 85);
+   font-family: monospace;
+   font-size: 2rem;
+   font-weight: 600;
+   border: 2px solid rgb(85, 85, 85);
+   padding: 5px 25px;
+   transition: 0.3s ease-in-out;
+}
+
+.slide a:hover {
+   background-color: rgb(85, 85, 85);
+   color: #fff;
+}
+
+.slide.displaySlide {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    animation-name: fade;
    animation-duration: 1.5s;
 }
