@@ -37,7 +37,7 @@ function takeOutTrash() {
    return new Promise((resolve, reject) => {
       setTimeout(() => {
 
-         const trashTakenOut = false;
+         const trashTakenOut = true;
 
          if (trashTakenOut) {
             resolve('You take out the trash');
@@ -49,7 +49,21 @@ function takeOutTrash() {
    })
 }
 
-walkDog().then(value => { console.log(value); return cleanKitchen() })
-   .then(value => { console.log(value); return takeOutTrash() })
-   .then(value => { console.log(value); console.log("End of program"); })
-   .catch(error => console.log(error));
+async function doChores() {
+
+   try {
+      const wlakDogResult = await walkDog();
+      console.log(wlakDogResult);
+
+      const cleanKitchenResult = await cleanKitchen();
+      console.log(cleanKitchenResult);
+
+      const takeOutTrashResult = await takeOutTrash();
+      console.log(takeOutTrashResult);
+   }
+   catch (error) {
+      console.error(error);
+   }
+}
+
+doChores();
