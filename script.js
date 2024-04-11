@@ -1,69 +1,45 @@
-function walkDog() {
+// const jsonNames = `["Spongebob", "Patrick", "Skwidward", "Sandy"]`;
+// const jsonPersone = `{
+//    "name": "Spongebob",
+//    "age": 30,
+//    "isEmployed": true,
+//    "hobbies": [
+//       "Soccer",
+//       "Golf",
+//       "Cooking"
+//    ]
+// }`;
+// const jsonPeople = `[
+//    {
+//       "name": "Spongebob",
+//       "age": 30,
+//       "isEmployed": true
+//    },
+//    {
+//       "name": "Patrick",
+//       "age": 34,
+//       "isEmployed": false
+//    },
+//    {
+//       "name": "Skwidward",
+//       "age": 45,
+//       "isEmployed": true
+//    },
+//    {
+//       "name": "Sandy",
+//       "age": 20,
+//       "isEmployed": false
+//    }
+// ]`;
 
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
+// const parseData = JSON.parse(jsonPersone);
 
-         const walkedDog = true;
+// console.log(parseData);
 
-         if (walkedDog) {
-            resolve('You walk the dog');
-         }
-         else {
-            reject('You did not walk the dog');
-         }
-      }, 1500);
-   });
-}
 
-function cleanKitchen() {
+// ================================================ Another Example ======================= //
 
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-
-         const kitchenCleaned = true;
-
-         if (kitchenCleaned) {
-            resolve('You clean the kitchen');
-         }
-         else {
-            reject('You did not clean the kitchen');
-         }
-      }, 2000);
-   })
-}
-
-function takeOutTrash() {
-
-   return new Promise((resolve, reject) => {
-      setTimeout(() => {
-
-         const trashTakenOut = true;
-
-         if (trashTakenOut) {
-            resolve('You take out the trash');
-         }
-         else {
-            reject('You did not take out the trash');
-         }
-      }, 500);
-   })
-}
-
-async function doChores() {
-
-   try {
-      const wlakDogResult = await walkDog();
-      console.log(wlakDogResult);
-
-      const cleanKitchenResult = await cleanKitchen();
-      console.log(cleanKitchenResult);
-
-      const takeOutTrashResult = await takeOutTrash();
-      console.log(takeOutTrashResult);
-   }
-   catch (error) {
-      console.error(error);
-   }
-}
-
-doChores();
+fetch("people.json")
+   .then(response => response.json())
+   .then(values => values.forEach(value => console.log(value.name + " " + value.age)))
+   .catch(error => console.error(error));
