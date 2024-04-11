@@ -1,39 +1,55 @@
-const slides = document.querySelectorAll(".container-slides .slide");
-let slideIndex = 0;
-let intervalId = null;
+function walkDog() {
 
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
 
-document.addEventListener("DOMContentLoaded", initializeSlider);
-function initializeSlider() {
+         const walkedDog = true;
 
-   if (slides.length > 0) {
-      slides[slideIndex].classList.add("displaySlide");
-      intervalId = setInterval(nextSlide, 8000);
-   }
-}
-
-function showSlide(index) {
-
-   if (index >= slides.length) {
-      slideIndex = 0;
-   }
-   else if (index < 0) {
-      slideIndex = slides.length - 1;
-   }
-
-   slides.forEach(slide => {
-      slide.classList.remove("displaySlide");
+         if (walkedDog) {
+            resolve('You walk the dog');
+         }
+         else {
+            reject('You did not walk the dog');
+         }
+      }, 1500);
    });
-   slides[slideIndex].classList.add("displaySlide");
 }
 
-function prevSlide() {
-   clearInterval(intervalId);
-   slideIndex--;
-   showSlide(slideIndex);
+function cleanKitchen() {
+
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+
+         const kitchenCleaned = true;
+
+         if (kitchenCleaned) {
+            resolve('You clean the kitchen');
+         }
+         else {
+            reject('You did not clean the kitchen');
+         }
+      }, 2000);
+   })
 }
 
-function nextSlide() {
-   slideIndex++;
-   showSlide(slideIndex);
+function takeOutTrash() {
+
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+
+         const trashTakenOut = false;
+
+         if (trashTakenOut) {
+            resolve('You take out the trash');
+         }
+         else {
+            reject('You did not take out the trash');
+         }
+      }, 500);
+   })
 }
+
+walkDog().then(value => { console.log(value); return cleanKitchen() })
+   .then(value => { console.log(value); return takeOutTrash() })
+   .then(value => { console.log(value); console.log("End of program"); })
+   .catch(error => console.log(error));
