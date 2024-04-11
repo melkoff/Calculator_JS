@@ -1,45 +1,25 @@
-// const jsonNames = `["Spongebob", "Patrick", "Skwidward", "Sandy"]`;
-// const jsonPersone = `{
-//    "name": "Spongebob",
-//    "age": 30,
-//    "isEmployed": true,
-//    "hobbies": [
-//       "Soccer",
-//       "Golf",
-//       "Cooking"
-//    ]
-// }`;
-// const jsonPeople = `[
-//    {
-//       "name": "Spongebob",
-//       "age": 30,
-//       "isEmployed": true
-//    },
-//    {
-//       "name": "Patrick",
-//       "age": 34,
-//       "isEmployed": false
-//    },
-//    {
-//       "name": "Skwidward",
-//       "age": 45,
-//       "isEmployed": true
-//    },
-//    {
-//       "name": "Sandy",
-//       "age": 20,
-//       "isEmployed": false
-//    }
-// ]`;
 
-// const parseData = JSON.parse(jsonPersone);
+async function fetchData() {
 
-// console.log(parseData);
+   try {
 
+      const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 
-// ================================================ Another Example ======================= //
+      if (!response.ok) {
+         throw new Error("Response not ok");
+      }
 
-fetch("people.json")
-   .then(response => response.json())
-   .then(values => values.forEach(value => console.log(value.name + " " + value.age)))
-   .catch(error => console.error(error));
+      const data = await response.json();
+      const pokemonSprite = data.sprites.front_default;// we can use back_default also
+      const imgElement = document.getElementById("pokemonSprite");
+
+      imgElement.src = pokemonSprite;
+      imgElement.style.display = "block";
+      console.log(data);
+   }
+   catch (error) {
+      console.error(error);
+   }
+
+}
